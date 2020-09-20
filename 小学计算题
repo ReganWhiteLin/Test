@@ -1,8 +1,6 @@
-@author: Regan_White
-"""
-
 from math import *
 from random import *
+from fractions import *
 
 choice='y'
 while choice=='y':            #循环以不断出题
@@ -24,12 +22,11 @@ while choice=='y':            #循环以不断出题
             total=total*a[j+1]
             equa+=str(a[j])+'×'
         elif flag==4:      
-            total=total/a[j+1]
+            total = Fraction(total, a[j+1]) 
             equa+=str(a[j])+'÷'
     equa+=str(a[j+1])+'='
-    total=round(total,3)     #对结果保留三位小数
-    ans=float(input(equa))   #输出题目并输入学生回答
-    if ans==total:           #验证结果，如正确则输出回答正确，错误则输出回答错误并输出正确结果
+    ans=str(input(equa))   #输出题目并输入学生回答
+    if ans==str(total):           #验证结果，如正确则输出回答正确，错误则输出回答错误并输出正确结果
         print('回答正确')
     else:
         print("回答错误，正确答案为"+str(total))
